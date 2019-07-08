@@ -9,7 +9,6 @@ class LoadingScreen extends Component<NavigationScreenProps> {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <ActivityIndicator size="large" color="#0000ff" />

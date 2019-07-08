@@ -1,17 +1,21 @@
 
-import Navigator from "./navigation/Navigator";
 import React, { Component } from "react";
+import { Provider } from 'react-redux';
 // import Orientation, { orientation } from "react-native-orientation";
+import NavigationContainer from './shared/Navigation/Navigator';
 
-import NavigationContainer from './navigation/Navigator';
+import configureStore from "./store/configureStore";
+import { StatusBar } from "react-native";
 
-interface Props {}
-export default class App extends Component<Props> {
-  // componentDidMount = () => {
-  //   Orientation.lockToPortrait();
-  // };
+const store = configureStore();
 
+export default class App extends Component {
   render() {
-    return <NavigationContainer />;
+    return (
+      <Provider store={store} >
+          <StatusBar backgroundColor="#234" barStyle="light-content" />
+        <NavigationContainer />
+      </Provider>
+    );
   }
 }

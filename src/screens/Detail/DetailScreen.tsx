@@ -2,6 +2,9 @@ import styles from "./styles";
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 
+import HeadingText from "../../components/UI/HeadingText/HeadingText";
+import MainText from "../../components/UI/MainText/MainText";
+
 class DetailScreen extends Component {
   static navigationOptions = {
     headerTitle: "{variavelComNomeDoProduto}"
@@ -11,9 +14,9 @@ class DetailScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.productContainer}>
-          <Text>$variavelCom_NomeDoProduto.</Text>
-          <Text>$variavelCom_Descrição</Text>
-          <Text>$variavelCom_Imagem.</Text>
+          <HeadingText>$variavelCom_NomeDoProduto.</HeadingText>
+          <MainText>$variavelCom_Imagem.</MainText>
+          <MainText>$variavelCom_Descrição</MainText>
         </View>
       </View>
     );
