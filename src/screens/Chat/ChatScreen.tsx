@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { uiStartLoading, uiStopLoading } from "../../store/actions/uiAction";
 import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
 import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
-import ChatFlatList from "../../components/Chat/ChatList/ChatList";
+import ChatFlatList from "../../components/Chat/ChatFlatList/ChatFlatList";
 
 type State = {
   chatText: string;
@@ -25,26 +25,25 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
   };
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
-    header: null,
-    headerTitle: "Tela de Chat",
-    headerLeft: Platform.select({
-      ios: null,
-      android: (
-        <ButtonWithBackground
-          backgroundColor="#345"
-          onPress={() => navigation.toggleDrawer()}>
-          <Text style={styles.whiteBold}>MENU</Text>
-        </ButtonWithBackground>
-      )
-    }),
-    headerRight: (
-      <ButtonWithBackground
-        backgroundColor="#345"
-        onPress={() => Alert.alert('Botão de sair Pressionado')}
-      >
-        <Text style={styles.whiteBold}>SAIR</Text>
-      </ButtonWithBackground>
-    )
+    headerTitle: "",
+    // headerLeft: Platform.select({
+    //   ios: null,
+    //   android: (
+    //     <ButtonWithBackground
+    //       backgroundColor="#345"
+    //       onPress={() => navigation.toggleDrawer()}>
+    //       <Text style={styles.whiteBold}>MENU</Text>
+    //     </ButtonWithBackground>
+    //   )
+    // }),
+    // headerRight: (
+    //   <ButtonWithBackground
+    //     backgroundColor="#345"
+    //     onPress={() => Alert.alert('Botão de sair Pressionado')}
+    //   >
+    //     <Text style={styles.whiteBold}>SAIR</Text>
+    //   </ButtonWithBackground>
+    // )
   });
 
   chatTextChangedHandler = (val: string) => {
@@ -55,7 +54,6 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
 
   chatSubmitHandler = () => {
     if (this.state.chatText.trim() === "") return;
-    const messages = this.state.messages;
     this.setState(prevState => {
       return {
         messages: prevState.messages.concat(prevState.chatText),
@@ -97,7 +95,7 @@ const mapStateToProps = (state: MapStateToProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     onUiStartLoading: () => dispatch(uiStartLoading()),
     onUiStopLoading: () => dispatch(uiStopLoading()),

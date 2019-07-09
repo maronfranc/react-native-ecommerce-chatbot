@@ -69,7 +69,6 @@ ChatStack.navigationOptions = {
 const MainNavigator = Platform.select({
   ios: createBottomTabNavigator({ HomeStack, ChatStack }),
   android: createMaterialTopTabNavigator({ HomeStack, ChatStack})
-  // android: createDrawerNavigator({ HomeStack, ChatStack, })
 });
 
 const RootSwitch = createSwitchNavigator(

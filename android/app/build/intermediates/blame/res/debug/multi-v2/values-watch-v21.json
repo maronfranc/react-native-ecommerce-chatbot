@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/mronfranc/Documents/react-native-chat/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/home/mronfranc/.gradle/caches/transforms-2/files-2.1/b77b6887505653b91d4a1f619a8643a2/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

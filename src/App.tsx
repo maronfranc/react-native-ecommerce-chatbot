@@ -1,11 +1,10 @@
 
 import React, { Component } from "react";
 import { Provider } from 'react-redux';
-// import Orientation, { orientation } from "react-native-orientation";
-import NavigationContainer from './shared/Navigation/Navigator';
+import { StatusBar } from "react-native";
 
 import configureStore from "./store/configureStore";
-import { StatusBar } from "react-native";
+import NavigationContainer from './shared/Navigation/Navigator';
 
 const store = configureStore();
 

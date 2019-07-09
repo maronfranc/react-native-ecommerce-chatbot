@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
   textHeading: {
     fontSize: 28,
     fontWeight: "bold",
+    color: '#222',
+    textAlign: 'center',
+    marginVertical: 15
   }
 });
 

@@ -9,8 +9,10 @@ const MainText = (props: any) => (
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 15,
-		backgroundColor: "transparent"
+		fontSize: 18,
+		backgroundColor: "transparent",
+		marginVertical: 10,
+		color: '#111'
 	}
 });
 
