@@ -4,6 +4,7 @@ import { Platform, Text, View, Button } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import ProductsFlatList from "../../components/Product/ProductsFlatList/ProductsFlatList";
 import { Product } from "../../models/product";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class HomeScreen extends Component<NavigationScreenProps> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
@@ -18,6 +19,9 @@ class HomeScreen extends Component<NavigationScreenProps> {
         null
       )
     }),
+    headerRight: <>
+    <Icon name="md-cart" size={30} />
+    </>
   });
 
   // Valor de teste adicionado enquando a conexão com o banco ainda não foi feita

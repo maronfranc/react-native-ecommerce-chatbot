@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/mronfranc/Documents/react-native-chat/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml",
+            "outputFile": "/home/mronfranc/Documents/Github/react-native-chat/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml",
             "map": [
                 {
-                    "source": "/home/mronfranc/.gradle/caches/transforms-2/files-2.1/5d03ac2bfb4b6162a18cdd376d37ba4f/res/values-ta/values-ta.xml",
+                    "source": "/home/mronfranc/.gradle/caches/transforms-2/files-2.1/5e0a657e5decfaf53ad0c59c0dadc71a/res/values-ta/values-ta.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/mronfranc/.gradle/caches/transforms-2/files-2.1/b77b6887505653b91d4a1f619a8643a2/res/values-ta/values-ta.xml",
+                    "source": "/home/mronfranc/.gradle/caches/transforms-2/files-2.1/f9eced2727c81af9e9f0ae23eed1ab3a/res/values-ta/values-ta.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
