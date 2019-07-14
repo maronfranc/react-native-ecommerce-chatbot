@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "react-devtool": "react-devtools",
+    "redux-devtool": "remotedev"
   },
   "dependencies": {
     "@types/react-native-vector-icons": "^6.4.1",
@@ -26,10 +28,13 @@
     "@types/react": "^16.8.22",
     "@types/react-native": "^0.57.64",
     "@types/react-test-renderer": "^16.8.2",
+    "@types/remote-redux-devtools": "^0.5.3",
     "babel-jest": "^24.8.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.54.1",
     "react-test-renderer": "16.8.3",
+    "remote-redux-devtools": "^0.5.16",
+    "remotedev-server": "^0.3.1",
     "typescript": "^3.5.2"
   },
   "jest": {

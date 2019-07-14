@@ -1,5 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import { composeWithDevTools } from 'remote-redux-devtools';
 
 import uiReducer from "./reducers/uiReducer";
 import chatReducer from './reducers/chatReducer';
@@ -10,10 +11,7 @@ const rootReducer = combineReducers({
 });
 
 let composeEnhancers = compose;
-
-if (__DEV__) {
-  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-}
+composeEnhancers = composeWithDevTools({ realtime: true });
 
 const configureStore = () => {
   return createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));

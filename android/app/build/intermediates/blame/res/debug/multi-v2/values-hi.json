@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/mronfranc/Documents/Github/react-native-chat/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
+            "outputFile": "/home/mronfranc/Documents/00001_GITHUB/react-native-chat/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
             "map": [
                 {
                     "source": "/home/mronfranc/.gradle/caches/transforms-2/files-2.1/f9eced2727c81af9e9f0ae23eed1ab3a/res/values-hi/values-hi.xml",
