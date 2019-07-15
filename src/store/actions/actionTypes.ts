@@ -3,3 +3,6 @@ export const UI_STOP_LOADING = 'UI_STOP_LOADING';
 
 export const USER_ADD_MESSAGE = 'USER_ADD_MESSAGE';
 export const CHATBOT_ADD_MESSAGE = 'CHATBOT_ADD_MESSAGE';
+
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';

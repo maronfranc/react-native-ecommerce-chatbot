@@ -4,10 +4,13 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 
 import uiReducer from "./reducers/uiReducer";
 import chatReducer from './reducers/chatReducer';
+import cartItems from "./reducers/cartProducts";
+
 
 const rootReducer = combineReducers({
   ui: uiReducer,
-  chat: chatReducer
+  chat: chatReducer,
+  cart: cartItems
 });
 
 let composeEnhancers = compose;

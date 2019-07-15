@@ -1,10 +1,15 @@
-import styles from "./styles";
 import React, { Component } from "react";
-import { Platform, Text, View, Button } from "react-native";
+import { Platform, Text, View, Button, Alert } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
+import { connect } from "react-redux";
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import styles from "./styles";
 import ProductsFlatList from "../../components/Product/ProductsFlatList/ProductsFlatList";
 import { Product } from "../../models/product";
-import Icon from 'react-native-vector-icons/Ionicons';
+import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon";
+import { mockData } from '../../Data';
+import { addToCart } from "../../store/actions/shoppingCartAction";
 
 class HomeScreen extends Component<NavigationScreenProps> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
@@ -15,47 +20,42 @@ class HomeScreen extends Component<NavigationScreenProps> {
           title="Menu"
           onPress={() => navigation.toggleDrawer()} />
       ),
-      android: (
-        null
-      )
+      android: null
     }),
-    headerRight: <>
-    <Icon name="md-cart" size={30} />
-    </>
+    headerRight:
+      <>
+        <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
+        <Icon
+          name="md-log-in"
+          size={30}
+          color="#fff"
+          onPress={() => { Alert.alert('Botão de login pressionado') }}
+          style={{ marginHorizontal: 5 }}
+        />
+      </>,
+    headerStyle: {
+      backgroundColor: '#345',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: '#fff'
+    },
   });
-
-  // Valor de teste adicionado enquando a conexão com o banco ainda não foi feita
-  mockData: Array<Product> = [
-    {
-      id: 0,
-      title: "Produto1.",
-      description: "Produto1 Produto1 Produto1 Produto1 Produto1 Produto1 Produto1 Produto1 Produto1 Produto1.",
-      price: 99,
-    }, {
-      id: 1,
-      title: "Produto2.",
-      description: "Produto1.aljhfluwehlfuef",
-      price: 99,
-    }, {
-      id: 2,
-      title: "Produto3.",
-      description: "Produto1.aljhfluwehlfuef",
-      price: 99,
-    }, {
-      id: 3,
-      title: "Produto23",
-      description: "Produto1.aljhfluwehlfuef",
-      price: 99,
-    }
-  ]
 
   render() {
     return (
       <View style={styles.container}>
-        <ProductsFlatList products={this.mockData} />
+        <ProductsFlatList products={mockData} />
       </View>
     );
   }
 }
 
-export default HomeScreen;
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    addItemToCart: (product: Product) => dispatch(addToCart(product))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(HomeScreen);

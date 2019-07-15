@@ -17,6 +17,7 @@ import HomeScreen from '../../screens/Home/HomeScreen';
 import LoadingScreen from '../../screens/Loading/LoadingScreen';
 import ChatScreen from '../../screens/Chat/ChatScreen';
 import LoginScreen from '../../screens/Login/LoginScreen';
+import CartScreen from '../../screens/Cart/CartScreen';
 
 const IOS_MODAL_ROUTES = ["LoginScreen"];
 
@@ -36,7 +37,7 @@ let dynamicModalTransition = (
 };
 
 const HomeStack = createStackNavigator(
-  { DetailScreen, HomeScreen, },
+  { DetailScreen, HomeScreen, CartScreen },
   { initialRouteName: "HomeScreen", transitionConfig: dynamicModalTransition }
 );
 
@@ -60,15 +61,20 @@ HomeStack.navigationOptions = ({ navigation }: NavigationScreenProps) => {
 };
 
 const ChatStack = createStackNavigator({ ChatScreen });
-
 ChatStack.navigationOptions = {
   tabBarLabel: "Chatbot",
   drawerLabel: "Chatbot",
 };
 
+// const ShoppingCartStack = createStackNavigator({ CartScreen });
+// ShoppingCartStack.navigationOptions = {
+//   tabBarLabel: "Carrinho de compras",
+//   drawerLabel: "Carrinho de compras",
+// }
+
 const MainNavigator = Platform.select({
   ios: createBottomTabNavigator({ HomeStack, ChatStack }),
-  android: createMaterialTopTabNavigator({ HomeStack, ChatStack})
+  android: createMaterialTopTabNavigator({ HomeStack, ChatStack })
 });
 
 const RootSwitch = createSwitchNavigator(

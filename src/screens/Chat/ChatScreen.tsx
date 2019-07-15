@@ -8,14 +8,11 @@ import { uiStartLoading, uiStopLoading } from "../../store/actions/uiAction";
 import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
 import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
 import ChatFlatList from "../../components/Chat/ChatFlatList/ChatFlatList";
+import Icon from "react-native-vector-icons/Ionicons";
 
 type State = {
   chatText: string;
   messages: Array<string>;
-}
-
-type MapStateToProps = {
-  ui: { isLoading: Boolean }
 }
 
 class ChatScreen extends Component<NavigationScreenProps, State> {
@@ -78,9 +75,10 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
               backgroundColor="#345"
               onPress={this.chatSubmitHandler}
             >
-              <Text style={styles.whiteBold}>
+              {/* <Text style={styles.whiteBold}>
                 ENVIAR
-              </Text>
+              </Text> */}
+              <Icon name="md-send" size={30} color="#fff" />
             </ButtonWithBackground>
           </View>
         </View>
@@ -89,7 +87,7 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
   }
 }
 
-const mapStateToProps = (state: MapStateToProps) => {
+const mapStateToProps = (state) => {
   return {
     isLoading: state.ui.isLoading
   }
