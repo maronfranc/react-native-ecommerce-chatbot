@@ -7,13 +7,25 @@ import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
 import MainText from "../../components/UI/MainText/MainText";
-import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon";
+import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import { Product } from "../../models/product";
 import { addToCart } from "../../store/actions/shoppingCartAction";
 import Icon from "react-native-vector-icons/Ionicons";
 
+type State = {
+  product: Product;
+}
 
-class DetailScreen extends Component<NavigationScreenProps> {
+class DetailScreen extends Component<NavigationScreenProps, State> {
+  state = {
+    product: {
+      id: this.props.navigation.getParam('id'),
+      title: this.props.navigation.getParam('title'),
+      description: this.props.navigation.getParam('description'),
+      price: this.props.navigation.getParam('price'),
+      qty: 1
+    }
+  }
   static navigationOptions = {
     headerTitle: "Produto",
     headerStyle: {
@@ -36,13 +48,29 @@ class DetailScreen extends Component<NavigationScreenProps> {
         />
       </>,
   };
-  
-  product: Product = {
-    id: this.props.navigation.getParam('id'),
-    title: this.props.navigation.getParam('title'),
-    description: this.props.navigation.getParam('description'),
-    price: this.props.navigation.getParam('price')
-  };
+
+
+  incrementQty = () => {
+    this.setState(prevState => {
+      return {
+        product: {
+          ...prevState.product,
+          qty: this.state.product.qty + 1
+        }
+      }
+    });
+  }
+
+  decrementQty = () => {
+    this.setState(prevState => {
+      return {
+        product: {
+          ...prevState.product,
+          qty: this.state.product.qty - 1
+        }
+      }
+    });
+  }
 
   render() {
     return (
@@ -53,12 +81,23 @@ class DetailScreen extends Component<NavigationScreenProps> {
               resizeMode="stretch" style={styles.image}
               source={require('../../assets/placeholder-image.png')} />
             <View style={styles.content}>
-              <HeadingText>{this.product.title}</HeadingText>
-              <MainText>- {this.product.description}</MainText>
-              <HeadingText>R${this.product.price}</HeadingText>
+              <HeadingText>{this.state.product.title}</HeadingText>
+              <MainText>- {this.state.product.description}</MainText>
+              <HeadingText>R${this.state.product.price}</HeadingText>
+
+              <View style={styles.buttonContainer}>
+                <Button
+                  title="-"
+                  onPress={() => { this.decrementQty() }} />
+                <HeadingText
+                  style={{ flex: 5, textAlign: 'center' }}>{this.state.product.qty}</HeadingText>
+                <Button
+                  title="+"
+                  onPress={() => { this.incrementQty() }} />
+              </View>
               <Button
                 title="Adicionar ao carrinho"
-                onPress={() => { this.props.addItemToCart(this.product) }} />
+                onPress={() => { this.props.addItemToCart(this.state.product) }} />
             </View>
           </ScrollView>
         </View>

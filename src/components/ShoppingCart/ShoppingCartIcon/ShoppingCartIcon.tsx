@@ -11,13 +11,13 @@ import { connect } from 'react-redux'
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import { Product } from "../../models/product";
+import { Product } from "../../../models/product";
 
 type State = {
   cart: Array<Product>;
 }
 
-const ShoppingCartIcon = (props) => (
+const ShoppingCartIcon = (props: any) => (
   <TouchableOpacity onPress={() => props.navigation.navigate('CartScreen')}>
     <View style={[{ padding: 5 }, Platform.OS == 'android' ? styles.iconContainer : null]}>
       <View style={{
@@ -32,7 +32,7 @@ const ShoppingCartIcon = (props) => (
         justifyContent: 'center',
         zIndex: 2000,
       }}>
-        <Text style={{  fontWeight: 'bold' }}>{props.cartProducts.length}</Text>
+        <Text style={{  fontWeight: 'bold' }}>{props.cart}</Text>
       </View>
       <Icon name="ios-cart" size={30} color="#fff" />
     </View>
@@ -41,7 +41,7 @@ const ShoppingCartIcon = (props) => (
 
 const mapStateToProps = (state: State) => {
   return {
-    cartProducts: state.cart
+    cart: state.cart.length
   }
 }
 

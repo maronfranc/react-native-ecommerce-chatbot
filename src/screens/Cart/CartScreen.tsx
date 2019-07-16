@@ -1,21 +1,20 @@
 import React, { Component } from "react";
-import { Platform, Text, View, Button } from "react-native";
+import { Platform, View, Button, Alert } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from 'react-redux';
 
 import styles from "./styles";
-import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon";
-import CartProductsList from "../../components/ShoppingCart/CartProductsList";
+import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import { removeFromCart } from "../../store/actions/shoppingCartAction";
 import { Product } from "../../models/product";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
+import CartFlatList from "../../components/ShoppingCart/CartFlatList/CartFlatList";
 
-type Props = {
-  cartProducts: Array<Product>;
-  removeProduct(): void;
+type State = {
+  cart: Array<Product>;
 }
 
-class CartScreen extends Component<Props> {
+class CartScreen extends Component<State> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
     headerTitle: "Produtos no Carrinho",
     headerLeft: Platform.select({
@@ -39,10 +38,13 @@ class CartScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        {this.props.cartProducts.length > 0 ?
-          <CartProductsList
-            onPress={this.props.removeProduct}
-            products={this.props.cartProducts} />
+        {this.props.cart.length > 0
+          ? <>
+            <Button title="Finalizar Compra" onPress={() => { Alert.alert("Botão Finalizar compra pressionado!") }} />
+            <CartFlatList
+              onPress={this.props.onRemoveFromCart}
+              products={this.props.cart} />
+          </>
           : <HeadingText>Carrinho vazio</HeadingText>
         }
       </View>
@@ -50,15 +52,15 @@ class CartScreen extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
   return {
-    cartProducts: state.cart
+    cart: state.cart
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeProduct: (product: Product) => dispatch(removeFromCart(product))
+    onRemoveFromCart: (product: Product) => dispatch(removeFromCart(product))
   }
 }
 

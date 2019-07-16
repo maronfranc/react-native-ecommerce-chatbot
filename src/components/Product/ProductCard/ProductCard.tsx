@@ -5,6 +5,7 @@ import MainText from '../../UI/MainText/MainText';
 import { withNavigation, NavigationScreenProps } from 'react-navigation';
 import HeadingText from '../../UI/HeadingText/HeadingText';
 import { Product } from '../../../models/product';
+import Card from '../../UI/Card/Card';
 
 
 const ProductCard = (props: Product & NavigationScreenProps) => {
@@ -17,7 +18,7 @@ const ProductCard = (props: Product & NavigationScreenProps) => {
     number.toFixed(2).toString().replace(".", ",");
 
   return (
-    <View style={styles.productContainer}>
+    <Card style={styles.productCard}>
       <HeadingText>{props.title}</HeadingText>
       <Image
         resizeMode="cover"
@@ -40,30 +41,15 @@ const ProductCard = (props: Product & NavigationScreenProps) => {
             }} />
         </View>
       </View>
-    </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
-  productContainer: {
-    alignItems: "center",
-    width: '100%',
+  productCard: {
     height: 550,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-    elevation: 1,
-    marginTop: 10,
-    marginBottom: 15,
-    backgroundColor: '#fff'
   },
   content: {
-    margin: 25,
     width: '100%',
     justifyContent: 'flex-end',
   },

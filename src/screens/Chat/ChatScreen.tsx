@@ -22,25 +22,7 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
   };
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
-    headerTitle: "",
-    // headerLeft: Platform.select({
-    //   ios: null,
-    //   android: (
-    //     <ButtonWithBackground
-    //       backgroundColor="#345"
-    //       onPress={() => navigation.toggleDrawer()}>
-    //       <Text style={styles.whiteBold}>MENU</Text>
-    //     </ButtonWithBackground>
-    //   )
-    // }),
-    // headerRight: (
-    //   <ButtonWithBackground
-    //     backgroundColor="#345"
-    //     onPress={() => Alert.alert('Botão de sair Pressionado')}
-    //   >
-    //     <Text style={styles.whiteBold}>SAIR</Text>
-    //   </ButtonWithBackground>
-    // )
+    header: null
   });
 
   chatTextChangedHandler = (val: string) => {
@@ -75,9 +57,6 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
               backgroundColor="#345"
               onPress={this.chatSubmitHandler}
             >
-              {/* <Text style={styles.whiteBold}>
-                ENVIAR
-              </Text> */}
               <Icon name="md-send" size={30} color="#fff" />
             </ButtonWithBackground>
           </View>

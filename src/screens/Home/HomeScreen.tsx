@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from "./styles";
 import ProductsFlatList from "../../components/Product/ProductsFlatList/ProductsFlatList";
 import { Product } from "../../models/product";
-import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon";
+import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import { mockData } from '../../Data';
 import { addToCart } from "../../store/actions/shoppingCartAction";
 

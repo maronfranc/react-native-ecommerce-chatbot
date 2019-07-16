@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     width: '100%',
-  },  
+  },
   content: {
     justifyContent: 'flex-end',
     width: '100%',
@@ -19,8 +19,11 @@ const styles = StyleSheet.create({
   image: {
     maxHeight: '75%',
     width: '100%'
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    margin: 50
   }
-  
 });
 
 export default styles;
