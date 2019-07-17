@@ -1,4 +1,4 @@
-import { Product } from "./models/product";
+import { Product } from "../../models/product";
 
 // Valor de teste adicionado enquando a conexão com o banco ainda não for feita
 export const mockData: Array<Product> = [

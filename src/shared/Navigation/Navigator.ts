@@ -38,7 +38,20 @@ let dynamicModalTransition = (
 
 const HomeStack = createStackNavigator(
   { DetailScreen, HomeScreen, CartScreen },
-  { initialRouteName: "HomeScreen", transitionConfig: dynamicModalTransition }
+  {
+    initialRouteName: "HomeScreen", 
+    transitionConfig: dynamicModalTransition,
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#345',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        color: '#fff'
+      },
+    }
+  }
 );
 
 HomeStack.navigationOptions = ({ navigation }: NavigationScreenProps) => {
@@ -66,12 +79,6 @@ ChatStack.navigationOptions = {
   drawerLabel: "Chatbot",
 };
 
-// const ShoppingCartStack = createStackNavigator({ CartScreen });
-// ShoppingCartStack.navigationOptions = {
-//   tabBarLabel: "Carrinho de compras",
-//   drawerLabel: "Carrinho de compras",
-// }
-
 const MainNavigator = Platform.select({
   ios: createBottomTabNavigator({ HomeStack, ChatStack }),
   android: createMaterialTopTabNavigator({ HomeStack, ChatStack })
@@ -79,7 +86,7 @@ const MainNavigator = Platform.select({
 
 const RootSwitch = createSwitchNavigator(
   { LoadingScreen, MainNavigator, LoginScreen },
-  { initialRouteName: "LoginScreen" }
+  { initialRouteName: "MainNavigator" }
 );
 
 const NavigationContainer = createAppContainer(RootSwitch);

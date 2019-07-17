@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
 import ProductCard from "../ProductCard/ProductCard";
 import { Product } from "../../../models/product";
 
@@ -17,7 +18,6 @@ const ProductsFlatList = (props: Props) => {
         title={item.title}
         description={item.description}
         price={item.price}
-        // onPress={()=>{this.onPressItem(item)}}
       />
     </View>
   );

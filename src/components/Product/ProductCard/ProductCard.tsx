@@ -1,21 +1,15 @@
 import React from 'react';
 import { View, Image, StyleSheet, Button } from 'react-native';
+import { withNavigation, NavigationScreenProps } from 'react-navigation';
 
 import MainText from '../../UI/MainText/MainText';
-import { withNavigation, NavigationScreenProps } from 'react-navigation';
 import HeadingText from '../../UI/HeadingText/HeadingText';
-import { Product } from '../../../models/product';
 import Card from '../../UI/Card/Card';
+import { Product } from '../../../models/product';
+import { truncateChars, replaceDotWithComma } from '../../../shared/utils/helperFunctions';
 
 
 const ProductCard = (props: Product & NavigationScreenProps) => {
-  // Se a string for mais longa que o limit, não mostra mais o resto e adiciona '...'
-  const truncateChars = (input: string, limit: number) =>
-    input.length > limit ? `${input.substring(0, limit)}...` : input;
-
-  // Recebe um número, deixa com duas casas decimais e muda o pontos para vírgula
-  const replaceDotWithComma = (number: number): string =>  
-    number.toFixed(2).toString().replace(".", ",");
 
   return (
     <Card style={styles.productCard}>
@@ -37,6 +31,7 @@ const ProductCard = (props: Product & NavigationScreenProps) => {
                 title: props.title,
                 description: props.description,
                 price: props.price,
+                qty: 1
               })
             }} />
         </View>

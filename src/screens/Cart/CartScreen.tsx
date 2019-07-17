@@ -25,14 +25,6 @@ class CartScreen extends Component<State> {
       ),
     }),
     headerRight: <ShoppingCartIcon />,
-    headerStyle: {
-      backgroundColor: '#345',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      color: '#fff'
-    },
   });
 
   render() {
@@ -40,7 +32,8 @@ class CartScreen extends Component<State> {
       <View style={styles.container}>
         {this.props.cart.length > 0
           ? <>
-            <Button title="Finalizar Compra" onPress={() => { Alert.alert("Botão Finalizar compra pressionado!") }} />
+            <Button title="Finalizar Compra"
+              onPress={() => { Alert.alert("Botão Finalizar compra pressionado!") }} />
             <CartFlatList
               onPress={this.props.onRemoveFromCart}
               products={this.props.cart} />

@@ -11,6 +11,8 @@ import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/Sho
 import { Product } from "../../models/product";
 import { addToCart } from "../../store/actions/shoppingCartAction";
 import Icon from "react-native-vector-icons/Ionicons";
+import Card from "../../components/UI/Card/Card";
+import { replaceDotWithComma } from "../../shared/utils/helperFunctions";
 
 type State = {
   product: Product;
@@ -26,19 +28,12 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
       qty: 1
     }
   }
-  static navigationOptions = {
+  
+  static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
     headerTitle: "Produto",
-    headerStyle: {
-      backgroundColor: '#345',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      color: '#fff'
-    },
     headerRight:
       <>
-        <ShoppingCartIcon onPress={() => { this.props.navigation.navigate('CartScreen') }} />
+        <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
         <Icon
           name="md-log-in"
           size={30}
@@ -47,7 +42,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
           style={{ marginHorizontal: 5 }}
         />
       </>,
-  };
+  });
 
 
   incrementQty = () => {
@@ -62,6 +57,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
   }
 
   decrementQty = () => {
+    if (this.state.product.qty <= 0) return;
     this.setState(prevState => {
       return {
         product: {
@@ -80,12 +76,13 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
             <Image
               resizeMode="stretch" style={styles.image}
               source={require('../../assets/placeholder-image.png')} />
+
             <View style={styles.content}>
               <HeadingText>{this.state.product.title}</HeadingText>
               <MainText>- {this.state.product.description}</MainText>
-              <HeadingText>R${this.state.product.price}</HeadingText>
+              <HeadingText>R${replaceDotWithComma(this.state.product.price * this.state.product.qty)}</HeadingText>
 
-              <View style={styles.buttonContainer}>
+              <Card style={styles.buttonContainer}>
                 <Button
                   title="-"
                   onPress={() => { this.decrementQty() }} />
@@ -94,7 +91,8 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
                 <Button
                   title="+"
                   onPress={() => { this.incrementQty() }} />
-              </View>
+              </Card>
+              
               <Button
                 title="Adicionar ao carrinho"
                 onPress={() => { this.props.addItemToCart(this.state.product) }} />

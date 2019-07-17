@@ -8,20 +8,12 @@ import styles from "./styles";
 import ProductsFlatList from "../../components/Product/ProductsFlatList/ProductsFlatList";
 import { Product } from "../../models/product";
 import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
-import { mockData } from '../../Data';
+import { mockData } from '../../shared/mock/Data';
 import { addToCart } from "../../store/actions/shoppingCartAction";
 
 class HomeScreen extends Component<NavigationScreenProps> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
     headerTitle: "Lista de produtos",
-    headerLeft: Platform.select({
-      ios: (
-        <Button
-          title="Menu"
-          onPress={() => navigation.toggleDrawer()} />
-      ),
-      android: null
-    }),
     headerRight:
       <>
         <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
@@ -29,18 +21,10 @@ class HomeScreen extends Component<NavigationScreenProps> {
           name="md-log-in"
           size={30}
           color="#fff"
-          onPress={() => { Alert.alert('Botão de login pressionado') }}
+          onPress={() => { navigation.navigate('LoginScreen')  }}
           style={{ marginHorizontal: 5 }}
         />
       </>,
-    headerStyle: {
-      backgroundColor: '#345',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      color: '#fff'
-    },
   });
 
   render() {

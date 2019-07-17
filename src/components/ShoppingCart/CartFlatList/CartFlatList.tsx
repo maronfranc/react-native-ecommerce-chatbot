@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 
 import Card from "../../UI/Card/Card";
 import HeadingText from "../../UI/HeadingText/HeadingText";
@@ -18,15 +18,8 @@ const CartFlatList = (props: Props) => {
         <Button onPress={() => props.onPress(item)} title={'X'} />
         <HeadingText>{item.title}</HeadingText>
         <HeadingText>
-          {item.description}
+          quantidade:{item.qty} &nbsp; R${item.price * item.qty}
         </HeadingText>
-        <HeadingText>
-          quantidade:{item.qty}
-        </HeadingText>
-        <HeadingText>
-          R${item.price * item.qty}
-        </HeadingText>
-        
       </Card>
     </View>
   );
@@ -35,8 +28,7 @@ const CartFlatList = (props: Props) => {
       style={{ width: '100%' }}
       data={props.products}
       renderItem={_renderItem}
-      keyExtractor={(item, index) => item.id.toString()}
-    />
+      keyExtractor={item => item.id.toString()} />
   );
 };
 
