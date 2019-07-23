@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import styles from "./styles";
 import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
-import { removeFromCart } from "../../store/actions/shoppingCartAction";
+import { removeFromCart } from "../../store/actions/cartAction";
 import { Product } from "../../models/product";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
 import CartFlatList from "../../components/ShoppingCart/CartFlatList/CartFlatList";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Button, Image, Alert } from "react-native";
+import { View, Button, Image, Alert } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
 import { ScrollView } from "react-native-gesture-handler";
@@ -7,11 +7,11 @@ import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
 import MainText from "../../components/UI/MainText/MainText";
+import Card from "../../components/UI/Card/Card";
 import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import { Product } from "../../models/product";
-import { addToCart } from "../../store/actions/shoppingCartAction";
+import { addToCartOrUpdate } from "../../store/actions/cartAction";
 import Icon from "react-native-vector-icons/Ionicons";
-import Card from "../../components/UI/Card/Card";
 import { replaceDotWithComma } from "../../shared/utils/helperFunctions";
 
 type State = {
@@ -95,7 +95,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
               
               <Button
                 title="Adicionar ao carrinho"
-                onPress={() => { this.props.addItemToCart(this.state.product) }} />
+                onPress={() => { this.props.onAddToCartOrUpdate(this.state.product) }} />
             </View>
           </ScrollView>
         </View>
@@ -106,7 +106,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    addItemToCart: (product: Product) => dispatch(addToCart(product))
+    onAddToCartOrUpdate: (product: Product) => dispatch(addToCartOrUpdate(product))
   }
 }
 

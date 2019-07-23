@@ -9,7 +9,7 @@ import ProductsFlatList from "../../components/Product/ProductsFlatList/Products
 import { Product } from "../../models/product";
 import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import { mockData } from '../../shared/mock/Data';
-import { addToCart } from "../../store/actions/shoppingCartAction";
+import { addToCart } from "../../store/actions/cartAction";
 
 class HomeScreen extends Component<NavigationScreenProps> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({

@@ -3,14 +3,12 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from 'remote-redux-devtools';
 
 import uiReducer from "./reducers/uiReducer";
-import chatReducer from './reducers/chatReducer';
-import cartItems from "./reducers/cartProducts";
+import cartReducer from "./reducers/cartReducer";
 
 
 const rootReducer = combineReducers({
   ui: uiReducer,
-  chat: chatReducer,
-  cart: cartItems
+  cart: cartReducer
 });
 
 let composeEnhancers = compose;
