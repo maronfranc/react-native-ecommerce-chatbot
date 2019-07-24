@@ -10,8 +10,8 @@ Projeto integrador de uma aplicação para um sistema de eCommerce com chatbot q
 
 ### - Para rodar o código:
 ```sh
-$ git clone https://github.com/maronfranc/react-native-chat
-$ cd react-native-chat
+$ git clone https://github.com/maronfranc/react-native-ecommerce-chatbot
+$ cd react-native-ecommerce-chatbot
 $ npm install
 ```
 
@@ -36,6 +36,7 @@ $ react-native run-ios
 
 - [ ] Conectar com o banco de dados
 - [ ] Conectar com a API do chatbot
+- [ ] Storage
 
 ~~Por enquanto os testes foram feitos só em celulares android.~~
 

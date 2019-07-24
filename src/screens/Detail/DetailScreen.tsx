@@ -57,7 +57,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
   }
 
   decrementQty = () => {
-    if (this.state.product.qty <= 0) return;
+    if (this.state.product.qty <= 1) return;
     this.setState(prevState => {
       return {
         product: {

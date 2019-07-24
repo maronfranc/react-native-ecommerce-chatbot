@@ -1,6 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_PRODUCT_QTY } from './actionTypes';
 import { Product } from '../../models/product';
-import { findInCartById } from '../../shared/utils/helperFunctions';
+import { findInArrayOfObjects } from '../../shared/utils/helperFunctions';
 
 
 export const addToCartOrUpdate = (product: Product) => {
@@ -9,7 +9,7 @@ export const addToCartOrUpdate = (product: Product) => {
     const cart = getState().cart;
 
     // Verifica existencia do produto no carrinho
-    findInCartById(cart, product)
+    findInArrayOfObjects<Product>(cart, product)
       // se existir envia pro reducer atualizar a quantidade desse produto no carrinho
       ? dispatch(updateProductQty(product))
       // senão existir envia pro reducer adicionar um novo
