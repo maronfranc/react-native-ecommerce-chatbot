@@ -1,4 +1,4 @@
-# react-native-chat
+# react-native-ecommerce-chatbot
 
 Projeto integrador de uma aplicação para um sistema de eCommerce com chatbot que auxilia o usuário nas compras dos produtos.
 
