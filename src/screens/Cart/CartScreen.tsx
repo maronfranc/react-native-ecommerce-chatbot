@@ -39,7 +39,7 @@ class CartScreen extends Component<State> {
             <ButtonWithBackground title="Finalizar Compra"
               onPress={() => { Alert.alert("Botão Finalizar compra pressionado!") }} />
           </>
-          : <HeadingText style={{ color: '#fff' }}>Carrinho vazio</HeadingText>
+          : <HeadingText style={{ color: '#fff' }}>Carrinho Vazio</HeadingText>
         }
       </View>
     );
