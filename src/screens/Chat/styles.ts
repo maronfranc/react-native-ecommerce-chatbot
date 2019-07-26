@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-end",
-    backgroundColor: '#678'
+    backgroundColor: '#345',
   },
   inputContainer: {
     width: "100%",
@@ -12,10 +12,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 5,
   },
-  whiteBold: {
-    color: '#fff',
-    fontWeight: 'bold'
-  }
 });
 
 export default styles;

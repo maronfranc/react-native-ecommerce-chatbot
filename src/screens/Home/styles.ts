@@ -5,11 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#678',
+    backgroundColor: '#345',
   },
-  icon: {
-    paddingLeft: 10
-  }
 });
 
 export default styles;

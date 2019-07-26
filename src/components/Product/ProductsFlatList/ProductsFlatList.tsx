@@ -18,6 +18,7 @@ const ProductsFlatList = (props: Props) => {
         title={item.title}
         description={item.description}
         price={item.price}
+        qty={item.qty}
       />
     </View>
   );
@@ -26,7 +27,7 @@ const ProductsFlatList = (props: Props) => {
       style={{ width: '100%' }}
       data={props.products}
       renderItem={_renderItem}
-      keyExtractor={(item, index) => item.id.toString()}
+      keyExtractor={(item) => item.id.toString()}
     />
   );
 };

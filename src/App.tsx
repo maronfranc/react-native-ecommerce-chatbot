@@ -12,7 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store} >
-          <StatusBar backgroundColor="#234" barStyle="light-content" />
+        <StatusBar backgroundColor="#012" barStyle="light-content" />
         <NavigationContainer />
       </Provider>
     );

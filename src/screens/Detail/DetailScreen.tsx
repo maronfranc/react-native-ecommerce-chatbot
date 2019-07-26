@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Button, Image, Alert } from "react-native";
+import { View, Image, Alert } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
 import { ScrollView } from "react-native-gesture-handler";
@@ -13,6 +13,7 @@ import { Product } from "../../models/product";
 import { addToCartOrUpdate } from "../../store/actions/cartAction";
 import Icon from "react-native-vector-icons/Ionicons";
 import { replaceDotWithComma } from "../../shared/utils/helperFunctions";
+import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
 
 type State = {
   product: Product;
@@ -28,7 +29,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
       qty: 1
     }
   }
-  
+
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
     headerTitle: "Produto",
     headerRight:
@@ -83,17 +84,18 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
               <HeadingText>R${replaceDotWithComma(this.state.product.price * this.state.product.qty)}</HeadingText>
 
               <Card style={styles.buttonContainer}>
-                <Button
-                  title="-"
+                <ButtonWithBackground
+                  title="     -     "
                   onPress={() => { this.decrementQty() }} />
-                <HeadingText
-                  style={{ flex: 5, textAlign: 'center' }}>{this.state.product.qty}</HeadingText>
-                <Button
-                  title="+"
+                <HeadingText style={{ flex: 1, textAlign: 'center' }}>
+                  {this.state.product.qty}
+                </HeadingText>
+                <ButtonWithBackground
+                  title="     +     "
                   onPress={() => { this.incrementQty() }} />
               </Card>
-              
-              <Button
+
+              <ButtonWithBackground
                 title="Adicionar ao carrinho"
                 onPress={() => { this.props.onAddToCartOrUpdate(this.state.product) }} />
             </View>
@@ -104,7 +106,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onAddToCartOrUpdate: (product: Product) => dispatch(addToCartOrUpdate(product))
   }

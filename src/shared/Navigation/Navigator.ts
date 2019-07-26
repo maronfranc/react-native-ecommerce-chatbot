@@ -39,11 +39,11 @@ let dynamicModalTransition = (
 const HomeStack = createStackNavigator(
   { DetailScreen, HomeScreen, CartScreen },
   {
-    initialRouteName: "HomeScreen", 
+    initialRouteName: "HomeScreen",
     transitionConfig: dynamicModalTransition,
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#345',
+        backgroundColor: '#123',
       },
       headerTintColor: '#fff',
       headerTitleStyle: {

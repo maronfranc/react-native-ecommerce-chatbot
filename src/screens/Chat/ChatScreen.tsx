@@ -1,6 +1,6 @@
 import styles from "./styles";
 import React, { Component } from "react";
-import { Platform, Text, View, Button, Alert } from "react-native";
+import { View } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
 
@@ -15,13 +15,17 @@ type State = {
   messages: Array<string>;
 }
 
+interface IsLoading {
+  isLoading: boolean;
+}
+
 class ChatScreen extends Component<NavigationScreenProps, State> {
   state: State = {
     chatText: '',
     messages: []
   };
 
-  static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
+  static navigationOptions = () => ({
     header: null
   });
 
@@ -54,11 +58,8 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
               onChangeText={this.chatTextChangedHandler}
             />
             <ButtonWithBackground
-              backgroundColor="#345"
               onPress={this.chatSubmitHandler}
-            >
-              <Icon name="md-send" size={30} color="#fff" />
-            </ButtonWithBackground>
+              title={<Icon name="md-send" size={30} color="#fff" />} />
           </View>
         </View>
       </View>
@@ -66,13 +67,13 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: { ui: IsLoading }) => {
   return {
     isLoading: state.ui.isLoading
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onUiStartLoading: () => dispatch(uiStartLoading()),
     onUiStopLoading: () => dispatch(uiStopLoading()),

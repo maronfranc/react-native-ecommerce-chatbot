@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, View, Button, Alert } from "react-native";
+import { Platform, View, Alert } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from 'react-redux';
 
@@ -9,6 +9,7 @@ import { removeFromCart } from "../../store/actions/cartAction";
 import { Product } from "../../models/product";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
 import CartFlatList from "../../components/ShoppingCart/CartFlatList/CartFlatList";
+import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
 
 type State = {
   cart: Array<Product>;
@@ -19,7 +20,7 @@ class CartScreen extends Component<State> {
     headerTitle: "Produtos no Carrinho",
     headerLeft: Platform.select({
       ios: (
-        <Button
+        <ButtonWithBackground
           title="Menu"
           onPress={() => navigation.toggleDrawer()} />
       ),
@@ -32,13 +33,13 @@ class CartScreen extends Component<State> {
       <View style={styles.container}>
         {this.props.cart.length > 0
           ? <>
-            <Button title="Finalizar Compra"
-              onPress={() => { Alert.alert("Botão Finalizar compra pressionado!") }} />
             <CartFlatList
-              onPress={this.props.onRemoveFromCart}
+              onPressRemove={this.props.onRemoveFromCart}
               products={this.props.cart} />
+            <ButtonWithBackground title="Finalizar Compra"
+              onPress={() => { Alert.alert("Botão Finalizar compra pressionado!") }} />
           </>
-          : <HeadingText>Carrinho vazio</HeadingText>
+          : <HeadingText style={{ color: '#fff' }}>Carrinho vazio</HeadingText>
         }
       </View>
     );

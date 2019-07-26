@@ -8,13 +8,11 @@ const styles = StyleSheet.create({
   },
   productContainer: {
     flex: 1,
-    justifyContent: "space-between",
     width: '100%',
   },
   content: {
     justifyContent: 'flex-end',
-    width: '100%',
-    marginBottom: 25,
+    marginBottom: 15,
   },
   image: {
     maxHeight: '75%',

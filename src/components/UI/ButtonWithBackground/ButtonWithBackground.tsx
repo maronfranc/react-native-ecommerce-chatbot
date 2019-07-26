@@ -8,17 +8,17 @@ import {
   Platform
 } from "react-native";
 
+
 const ButtonWithBackground = (props: any) => {
   const content = (
     <View
       style={[
         styles.button,
-        { backgroundColor: props.backgroundColor },
         props.disabled ? styles.disabled : null
       ]}
     >
-      <Text style={props.disabled ? styles.disabledText : null}>
-        {props.children}
+      <Text style={[styles.textStyles, props.disabled ? styles.disabledText : null]}>
+        {props.title}
       </Text>
     </View>
   );
@@ -32,16 +32,23 @@ const ButtonWithBackground = (props: any) => {
       </TouchableNativeFeedback>
     );
   }
-  return <TouchableOpacity onPress={props.onPress}>{content}</TouchableOpacity>;
+  return (
+    <TouchableOpacity onPress={props.onPress}>
+      {content}
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
   button: {
-    flexDirection: "row",
-    alignItems: "center",
+    backgroundColor: '#456',
+    padding: 7,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: 50,
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 5,
     borderColor: '#bbb',
     borderBottomWidth: 0,
     shadowColor: '#000',
@@ -49,14 +56,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 5,
     elevation: 1,
-    padding: 7
   },
   disabled: {
-    backgroundColor: "#eee",
-    borderColor: "#aaa"
+    backgroundColor: '#eee',
+    borderColor: '#aaa'
   },
   disabledText: {
-    color: "#aaa"
+    color: '#aaa'
+  },
+  textStyles: {
+    color: '#fff',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    textAlign: 'center',
   }
 });
 

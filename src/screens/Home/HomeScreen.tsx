@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, Text, View, Button, Alert } from "react-native";
+import { View } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -36,7 +36,7 @@ class HomeScreen extends Component<NavigationScreenProps> {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addItemToCart: (product: Product) => dispatch(addToCart(product))
   }

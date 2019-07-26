@@ -2,19 +2,11 @@ import React from "react";
 import { TextInput, StyleSheet } from "react-native";
 
 const DefaultInput = (props: any) => (
-  // onMultilineTextInputEnter = (e) => {
-  //   if (e.nativeEvent.key == "Enter") {
-  //     console.warn('Enter');
-  //   }
-  // }
   <TextInput
     {...props}
     style={[styles.chatInput, props.style]}
     autoCapitalize="sentences"
-    underlineColorAndroid="rgba(0,0,0,0)"
-    // multiline={true}
-    // onKeyPress={onMultilineTextInputEnter}
-  />
+    underlineColorAndroid="rgba(0,0,0,0)" />
 );
 
 const styles = StyleSheet.create({
@@ -25,7 +17,10 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderBottomWidth: 0,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
     shadowOpacity: 0.8,
     shadowRadius: 5,
     elevation: 1,
