@@ -9,6 +9,9 @@ import ButtonWithBackground from "../../components/UI/ButtonWithBackground/Butto
 import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
 import ChatFlatList from "../../components/Chat/ChatFlatList/ChatFlatList";
 import Icon from "react-native-vector-icons/Ionicons";
+import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
+import HeadingText from "../../components/UI/HeadingText/HeadingText";
+import ChatbotMessage from "../../components/Chat/UserMessage/ChatbotMessage";
 
 type State = {
   chatText: string;
@@ -25,8 +28,18 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
     messages: []
   };
 
-  static navigationOptions = () => ({
-    header: null
+  static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
+    headerTitle: 'Chatbot',
+    headerRight:
+      <>
+        <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
+        <Icon
+          name="md-log-in"
+          size={30}
+          color="#fff"
+          onPress={() => { navigation.navigate('LoginScreen') }}
+          style={{ marginHorizontal: 5 }} />
+      </>,
   });
 
   chatTextChangedHandler = (val: string) => {
@@ -49,7 +62,9 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
+          <ChatbotMessage chatText="ChatBot Atendente." />
           <ChatFlatList messages={this.state.messages} />
+          <HeadingText>Sem conexão</HeadingText>
           <View style={styles.inputContainer}>
             <DefaultInput
               placeholder="Pergunte ao nosso Robô"

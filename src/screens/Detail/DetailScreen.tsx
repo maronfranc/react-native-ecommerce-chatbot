@@ -34,6 +34,12 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
     headerTitle: "Produto",
     headerRight:
       <>
+        <Icon
+          name="md-chatboxes"
+          size={30}
+          color="#fff"
+          onPress={() => { navigation.navigate('ChatScreen') }}
+          style={{ marginHorizontal: 5 }} />
         <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
         <Icon
           name="md-log-in"
@@ -72,35 +78,31 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.productContainer}>
-          <ScrollView>
-            <Image
-              resizeMode="stretch" style={styles.image}
-              source={require('../../assets/placeholder-image.png')} />
+        <ScrollView>
+          <Image
+            resizeMode="stretch" style={styles.image}
+            source={require('../../assets/placeholder-image.png')} />
 
-            <View style={styles.content}>
-              <HeadingText>{this.state.product.title}</HeadingText>
-              <MainText>- {this.state.product.description}</MainText>
-              <HeadingText>R${replaceDotWithComma(this.state.product.price * this.state.product.qty)}</HeadingText>
+          <HeadingText>{this.state.product.title}</HeadingText>
+          <MainText>{this.state.product.description}</MainText>
+          <HeadingText>R${replaceDotWithComma(this.state.product.price * this.state.product.qty)}</HeadingText>
 
-              <Card style={styles.buttonContainer}>
-                <ButtonWithBackground
-                  title="     -     "
-                  onPress={() => { this.decrementQty() }} />
-                <HeadingText style={{ flex: 1, textAlign: 'center' }}>
-                  {this.state.product.qty}
-                </HeadingText>
-                <ButtonWithBackground
-                  title="     +     "
-                  onPress={() => { this.incrementQty() }} />
-              </Card>
+          <Card style={styles.buttonContainer}>
+            <ButtonWithBackground
+              title="     -     "
+              onPress={() => { this.decrementQty() }} />
+            <HeadingText style={{ flex: 1, textAlign: 'center' }}>
+              {this.state.product.qty}
+            </HeadingText>
+            <ButtonWithBackground
+              title="     +     "
+              onPress={() => { this.incrementQty() }} />
+          </Card>
 
-              <ButtonWithBackground
-                title="Adicionar ao carrinho"
-                onPress={() => { this.props.onAddToCartOrUpdate(this.state.product) }} />
-            </View>
-          </ScrollView>
-        </View>
+          <ButtonWithBackground
+            title="Adicionar ao carrinho"
+            onPress={() => { this.props.onAddToCartOrUpdate(this.state.product) }} />
+        </ScrollView>
       </View>
     );
   }

@@ -4,6 +4,7 @@ import { NavigationScreenProps } from "react-navigation";
 
 import styles from './styles';
 import ButtonWithBackground from '../../components/UI/ButtonWithBackground/ButtonWithBackground';
+import HeadingText from '../../components/UI/HeadingText/HeadingText';
 
 class LoginScreen extends Component<NavigationScreenProps> {
   render() {
@@ -12,10 +13,10 @@ class LoginScreen extends Component<NavigationScreenProps> {
         <Image
           style={{ width: 250, height: 250 }}
           source={require('../../assets/Logo.png')} />
+          <HeadingText>Em construção</HeadingText>
         <ButtonWithBackground
-          backgroundColor={"#345"}
-          title="Conversar Com o nosso Robô"
-          onPress={() => this.props.navigation.navigate('MainNavigator')} />
+          title="Voltar"
+          onPress={() => this.props.navigation.navigate('HomeStack')} />
       </View>
     );
   }

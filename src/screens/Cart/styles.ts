@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
   },
   icon: {
     paddingLeft: 10
+  },
+  totalCard: {
+    flexDirection: 'row',
+    width: '95%',
+    justifyContent: 'space-between'
   }
 });
 

@@ -14,7 +14,7 @@ const ChatFlatList = (props: Props) => {
     <View>
       <UserMessage chatText={item} />
       {/* As mensagens do chatbot virao da API,*/}
-      <ChatbotMessage chatText={item} />
+      <ChatbotMessage chatText={'Sem conexão com o servidor...'} />
     </View>
   );
   return (

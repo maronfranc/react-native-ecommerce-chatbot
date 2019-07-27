@@ -2,17 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  productContainer: {
-    flex: 1,
     width: '100%',
-  },
-  content: {
-    justifyContent: 'flex-end',
-    marginBottom: 15,
   },
   image: {
     maxHeight: '75%',
@@ -20,7 +10,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    margin: 50
+    margin: 50,
   }
 });
 

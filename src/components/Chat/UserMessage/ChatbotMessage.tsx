@@ -13,14 +13,13 @@ const ChatbotMessage = (props: Props) => (
     styles.chatMessageContainer,
     styles.chatbotMessageContainer,
   ]}>
+    <Image style={styles.messageIcon} source={require('../../../assets/icon.png')} />
     <MainText style={[
       styles.chatText,
       styles.chatbotText,
     ]}>
-      {/* {props.chatText} */}
-      Sem conexão com o servidor...
+      {props.chatText}
     </MainText>
-    <Image style={styles.messageIcon} source={require('../../../assets/icon.png')} />
   </View>
 );
 

@@ -8,9 +8,19 @@ import Card from '../../UI/Card/Card';
 import { Product } from '../../../models/product';
 import { truncateChars, replaceDotWithComma } from '../../../shared/utils/helperFunctions';
 import ButtonWithBackground from '../../UI/ButtonWithBackground/ButtonWithBackground';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
+import { addToCartOrUpdate } from '../../../store/actions/cartAction';
 
 
 const ProductCard = (props: Product & NavigationScreenProps) => {
+  const product: Product = {
+    id: props.id,
+    title: props.title,
+    description: props.description,
+    price: props.price,
+    qty: 1
+  }
   return (
     <Card style={styles.productCard}>
       <HeadingText style={styles.cardTitle}>{props.title}</HeadingText>
@@ -22,18 +32,17 @@ const ProductCard = (props: Product & NavigationScreenProps) => {
       <View style={styles.content}>
         <View>
           <MainText>{truncateChars(props.description, 30)}</MainText>
-          <HeadingText>R${replaceDotWithComma(props.price)}</HeadingText>
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+            <HeadingText>Preço: R${replaceDotWithComma(props.price)}</HeadingText>
+            <ButtonWithBackground
+              title={<Icon name="ios-cart" size={30} color="#fff" />}
+              onPress={() => { props.onAddToCartOrUpdate(product) }} />
+          </View>
+
           <ButtonWithBackground
             title="Ver produto"
-            onPress={() => {
-              props.navigation.navigate("DetailScreen", {
-                id: props.id,
-                title: props.title,
-                description: props.description,
-                price: props.price,
-                qty: 1
-              })
-            }} />
+            onPress={() => { props.navigation.navigate("DetailScreen", product) }} />
         </View>
       </View>
     </Card>
@@ -61,4 +70,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withNavigation(ProductCard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddToCartOrUpdate: (product: Product) => dispatch(addToCartOrUpdate(product))
+  }
+}
+
+
+export default connect(null, mapDispatchToProps)(withNavigation(ProductCard));

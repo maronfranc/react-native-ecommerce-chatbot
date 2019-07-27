@@ -16,14 +16,19 @@ class HomeScreen extends Component<NavigationScreenProps> {
     headerTitle: "Lista de produtos",
     headerRight:
       <>
+        <Icon
+          name="md-chatboxes"
+          size={30}
+          color="#fff"
+          onPress={() => { navigation.navigate('ChatScreen') }}
+          style={{ marginHorizontal: 5 }} />
         <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
         <Icon
           name="md-log-in"
           size={30}
           color="#fff"
-          onPress={() => { navigation.navigate('LoginScreen')  }}
-          style={{ marginHorizontal: 5 }}
-        />
+          onPress={() => { navigation.navigate('LoginScreen') }}
+          style={{ marginHorizontal: 5 }} />
       </>,
   });
 
