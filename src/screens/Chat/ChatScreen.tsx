@@ -3,13 +3,12 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { connect } from "react-redux";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import { uiStartLoading, uiStopLoading } from "../../store/actions/uiAction";
 import ButtonWithBackground from "../../components/UI/ButtonWithBackground/ButtonWithBackground";
 import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
 import ChatFlatList from "../../components/Chat/ChatFlatList/ChatFlatList";
-import Icon from "react-native-vector-icons/Ionicons";
-import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import HeadingText from "../../components/UI/HeadingText/HeadingText";
 import ChatbotMessage from "../../components/Chat/UserMessage/ChatbotMessage";
 
@@ -31,15 +30,12 @@ class ChatScreen extends Component<NavigationScreenProps, State> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
     headerTitle: 'Chatbot',
     headerRight:
-      <>
-        <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
-        <Icon
-          name="md-log-in"
-          size={30}
-          color="#fff"
-          onPress={() => { navigation.navigate('LoginScreen') }}
-          style={{ marginHorizontal: 5 }} />
-      </>,
+      <Icon
+        name="md-log-in"
+        size={30}
+        color="#fff"
+        onPress={() => { navigation.navigate('LoginScreen') }}
+        style={{ marginHorizontal: 5 }} />,
   });
 
   chatTextChangedHandler = (val: string) => {

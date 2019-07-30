@@ -6,7 +6,7 @@ import MainText from '../../UI/MainText/MainText';
 import HeadingText from '../../UI/HeadingText/HeadingText';
 import Card from '../../UI/Card/Card';
 import { Product } from '../../../models/product';
-import { truncateChars, replaceDotWithComma } from '../../../shared/utils/helperFunctions';
+import { replaceDotWithComma } from '../../../shared/utils/helperFunctions';
 import ButtonWithBackground from '../../UI/ButtonWithBackground/ButtonWithBackground';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
@@ -31,7 +31,7 @@ const ProductCard = (props: Product & NavigationScreenProps) => {
       />
       <View style={styles.content}>
         <View>
-          <MainText>{truncateChars(props.description, 30)}</MainText>
+          <MainText numberOfLines={3}>{props.description}</MainText>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
             <HeadingText>Preço: R${replaceDotWithComma(props.price)}</HeadingText>

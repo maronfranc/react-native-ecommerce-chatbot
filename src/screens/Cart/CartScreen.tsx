@@ -30,16 +30,16 @@ class CartScreen extends Component<State> {
     headerRight: (
       <>
         <Icon
-          name="md-chatboxes"
-          size={30}
-          color="#fff"
-          onPress={() => { navigation.navigate('ChatScreen') }}
-          style={{ marginHorizontal: 5 }} />
-        <Icon
           name="md-card"
           size={30}
           color="#fff"
           onPress={() => { Alert.alert('Botão modo de pagamento pressionado') }}
+          style={{ marginHorizontal: 5 }} />
+        <Icon
+          name="md-log-in"
+          size={30}
+          color="#fff"
+          onPress={() => { navigation.navigate('LoginScreen') }}
           style={{ marginHorizontal: 5 }} />
       </>
     )

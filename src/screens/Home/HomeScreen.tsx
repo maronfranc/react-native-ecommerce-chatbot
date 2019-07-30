@@ -7,7 +7,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from "./styles";
 import ProductsFlatList from "../../components/Product/ProductsFlatList/ProductsFlatList";
 import { Product } from "../../models/product";
-import ShoppingCartIcon from "../../components/ShoppingCart/ShoppingCartIcon/ShoppingCartIcon";
 import { mockData } from '../../shared/mock/Data';
 import { addToCart } from "../../store/actions/cartAction";
 
@@ -16,13 +15,6 @@ class HomeScreen extends Component<NavigationScreenProps> {
     headerTitle: "Lista de produtos",
     headerRight:
       <>
-        <Icon
-          name="md-chatboxes"
-          size={30}
-          color="#fff"
-          onPress={() => { navigation.navigate('ChatScreen') }}
-          style={{ marginHorizontal: 5 }} />
-        <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
         <Icon
           name="md-log-in"
           size={30}

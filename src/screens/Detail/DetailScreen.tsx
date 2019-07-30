@@ -40,7 +40,7 @@ class DetailScreen extends Component<NavigationScreenProps, State> {
           color="#fff"
           onPress={() => { navigation.navigate('ChatScreen') }}
           style={{ marginHorizontal: 5 }} />
-        <ShoppingCartIcon onPress={() => { navigation.navigate('CartScreen') }} />
+        <ShoppingCartIcon color="#fff" size={30} onPress={() => { navigation.navigate('CartScreen') }} />
         <Icon
           name="md-log-in"
           size={30}
